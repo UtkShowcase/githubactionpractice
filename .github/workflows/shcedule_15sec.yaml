@@ -1,0 +1,12 @@
+name: shcedule_15sec
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  schedule_every_5_min:
+    runs-on: ubuntu-latest
+    steps:
+      - name: prinitng_mesg
+        run: echo "Prinitng the Every 5th Message"

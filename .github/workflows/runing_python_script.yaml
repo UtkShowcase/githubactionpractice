@@ -1,0 +1,21 @@
+name: running_python_script
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run_python_script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout_repo
+        uses: actions/checkout@v3
+
+      - name: setup_python
+        uses: actions/setup-python@v4
+
+      - name: run_python_script
+        run: |
+          dir
+          python ./main.py

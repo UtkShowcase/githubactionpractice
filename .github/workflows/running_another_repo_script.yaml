@@ -1,0 +1,24 @@
+name: running_another_repo_script
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  running_another_repo_script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout_another_repo
+        uses: actions/checkout@v3
+        with:
+          repository: gftmadan/test1
+          token: ${{secrets.MY_REPO_PAT}}
+
+      - name: setuping_pyhton
+        uses: actions/setup-python@v4
+
+      - name: running_script
+        run: |
+          dir
+          python ./main.py

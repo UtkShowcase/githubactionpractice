@@ -11,12 +11,15 @@ jobs:
     steps:
       - name: checkout_from_current_reop
         uses: actions/checkout@v3
+        with:
+          path: utkshowcase
 
       - name: checkout_from_gftmadan_repo
         uses: actions/checkout@v3
         with:
           repository: gftmadan/test1
           token: ${{secrets.MY_REPO_PAT}}
+          path: gftmadan
 
       - name: setuping_python
         uses: actions/setup-python@v4
@@ -24,5 +27,5 @@ jobs:
       - name: running scipts
         run: |
           dir
-          python main.py
-          python test.py
+          python ./utkshowcase/main.py
+          python ./gftmadan/test.py

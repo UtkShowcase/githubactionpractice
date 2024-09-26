@@ -5,12 +5,6 @@ on:
     branches:
       - main
 
-permissions:
-  id-token: write
-  contents: read
-  attestations: write
-  packages: write
-
 jobs:
   docker_push_with_metadata_arrtifacts:
     runs-on: ubuntu-latest
@@ -39,10 +33,3 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{secrets.DOCKER_USERNAME}}/test_action:latest
-
-      - name: generate_artifacts_attestion
-        uses: actions/attest-build-provenance@v1
-        with:
-          subject-name: ${{secrets.DOCKER_USERNAME}}/test_action
-          subject-digest: ${{steps.push.outputs.digest}}
-          push-to-registry: true

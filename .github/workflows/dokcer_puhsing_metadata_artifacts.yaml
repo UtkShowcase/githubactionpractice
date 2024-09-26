@@ -22,7 +22,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{secrets.DOCKER_USERNAME}}/test_action
+          images: ${{secrets.DOCKER_USERNAME}}/test_action:latest
 
       - name: build_and_publish
         id: push
@@ -37,6 +37,6 @@ jobs:
       - name: generate_artifacts_attestion
         uses: actions/attest-build-provenance@v1
         with:
-          subject-name: ${{secrets.DOCKER_USERNAME}}/test_action
+          subject-name: ${{secrets.DOCKER_USERNAME}}/test_actisson:latest
           subject-digest: ${{steps.push.outputs.digest}}
           push-to-registry: true

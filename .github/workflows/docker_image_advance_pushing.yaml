@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkingout_repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: docker_login
         uses: docker/login-action@v3

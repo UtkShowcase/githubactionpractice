@@ -28,3 +28,4 @@ jobs:
       - name: prinitng
         run: |
           echo ${{steps.meta.outputs.tags}}
+          echo ${{steps.meta.outputs.labels}}

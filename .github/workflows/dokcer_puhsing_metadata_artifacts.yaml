@@ -37,6 +37,6 @@ jobs:
       - name: generate_artifacts_attestion
         uses: actions/attest-build-provenance@v1
         with:
-          subject-name: ${{secrets.DOCKER_USERNAME}}/test_action:latest
+          subject-path: ${{secrets.DOCKER_USERNAME}}/test_action:latest
           subject-digest: ${{steps.push.outputs.digest}}
           push-to-registry: true

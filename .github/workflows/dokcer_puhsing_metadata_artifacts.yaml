@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   docker_push_with_metadata_arrtifacts:
     runs-on: ubuntu-latest

@@ -22,21 +22,10 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{secrets.DOCKER_USERNAME}}/test_action:latest
+          images: ${{secrets.DOCKER_USERNAME}}/test_action
 
-      - name: build_and_publish
-        id: push
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: ${{steps.meta.outputs.tags}}
-          labels: ${{steps.meta.outputs.labels}}
-
-      - name: generate_artifacts_attestion
-        uses: actions/attest-build-provenance@v1
-        with:
-          subject-name: ${{secrets.DOCKER_USERNAME}}/test_actisson:latest
-          subject-digest: ${{steps.push.outputs.digest}}
-          push-to-registry: true
+      - name: prinitng
+        run: |
+          echo ${{steps.meta.outputs.tags}}
+          echo ${{steps.meta.outputs.labels}}
+          echo ${{steps.meta.outputs.version}}

@@ -1,0 +1,14 @@
+name: on_closed_pull_request
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+
+jobs:
+  on_closed_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: first
+        run: echo "Hello I am There"

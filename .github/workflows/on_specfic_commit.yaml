@@ -1,0 +1,13 @@
+name: on_specfic_commit
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  on_specfic_commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: first
+        run: echo ${{ github.actor }}

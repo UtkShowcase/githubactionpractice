@@ -1,0 +1,19 @@
+name: on_specific_user_pull_request
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened]
+
+jobs:
+  on_specific_user_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking_for_gftmadan
+        if: ${{ github.actor == 'gftmadan'}}
+        run: echo "Welcome GFTMADAN"
+
+      - name: Checking_for_UtkShowcase
+        if: ${{ github.actor == 'UtkShowcase'}}
+        run: echo "Welcome UTKSHOWCASE"

@@ -9,8 +9,8 @@ jobs:
   on_specifc_user_commit:
     runs-on: ubuntu-latest
     steps:
-      - if: ${{ github.actor }} == "gftmadan"
+      - if: ${{ github.actor == 'gftmadan'}}
         run: echo "Welcome GFTMADAN !!!!"
 
-      - if: ${{ github.actor }} == "UtkShowcase"
+      - if: ${{ github.actor == 'UtkShowcase'}}
         run: echo "Welcome UTKSHOWCASE"

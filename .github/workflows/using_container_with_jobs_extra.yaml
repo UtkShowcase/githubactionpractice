@@ -1,0 +1,19 @@
+name: using_container_with_job_extra
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  using_container_with_step:
+    runs-on: ubuntu-latest
+    container:
+      image: gftmadan/githubaction
+
+    steps:
+      - name: chekcing_out_repo
+        uses: actions/checkout@v3
+
+      - name: running_h1_python_script
+        run: python ./src/h1.py
